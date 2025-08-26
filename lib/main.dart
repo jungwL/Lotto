@@ -12,6 +12,7 @@ class LottoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: '로또 번호 생성기',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
