@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -235,7 +234,7 @@ class _LottoMachineScreenState extends State<LottoMachineScreen> {
             ),
           ),
           onPressed: (){
-          launchUrl(Uri.parse('https://www.dhlottery.co.kr/gameResult.do?method=byWin'));
+          launchUrl(Uri.parse('https://m.dhlottery.co.kr/gameResult.do?method=byWin'));
         }, child: Text('전주 당첨번호 보러가기',style: TextStyle(color: Colors.black),))
       ],
     );
