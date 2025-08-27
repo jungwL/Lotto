@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const LottoApp());
@@ -211,14 +213,29 @@ class _LottoMachineScreenState extends State<LottoMachineScreen> {
 
   // 컨트롤 버튼 위젯
   Widget _buildControlButton() {
-    return ElevatedButton.icon(
-      icon: const Icon(Icons.casino),
-      label: Text(_isDrawing ? '추첨 중...' : '추첨 시작!', style: const TextStyle(fontSize: 20)),
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      ),
-      onPressed: _isDrawing ? null : _startDrawing,
+    return Column(
+      children: [
+        ElevatedButton.icon(
+          icon: const Icon(Icons.casino,color: Colors.white,),
+          label: Text(_isDrawing ? '추첨 중...' : '추첨 시작!', style: const TextStyle(fontSize: 20,color: Colors.white)),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          ),
+          onPressed: _isDrawing ? null : _startDrawing,
+        ),
+        SizedBox(height: 10),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          onPressed: (){
+          launchUrl(Uri.parse('https://www.dhlottery.co.kr/gameResult.do?method=byWin'));
+        }, child: Text('전주 당첨번호 보러가기',style: TextStyle(color: Colors.black),))
+      ],
     );
   }
 
