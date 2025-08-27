@@ -133,10 +133,12 @@ class _LottoMachineScreenState extends State<LottoMachineScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('🍀 행운의 로또 번호 🍀'),
         centerTitle: true,
         elevation: 0,
+        backgroundColor: Colors.white,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
